@@ -18,3 +18,22 @@ export const SelectContainer=styled.div`
     text-align: left;
     
 `
+
+export const SelectedCompanyContainer=styled.div`
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    margin-top: 20px;
+
+`
+
+export const SelectedTitle=styled.p`
+    font-size:28px;
+    font-weight:bold;
+    background-color:#ADE8F4;
+    color:#023E8A;
+    padding: 10px;
+    border: 1px solid #03045E;
+    border-radius: 20px;
+
+`

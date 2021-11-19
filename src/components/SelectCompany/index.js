@@ -1,6 +1,7 @@
-import React,{useState,useEffect,useContext} from "react";
+import React,{useContext} from "react";
 import Select from 'react-select';
-import { BgContainer, SelectContainer, Title } from "./styles";
+import { BgContainer, SelectContainer, SelectedCompanyContainer, SelectedTitle, Title } from "./styles";
+import TextTransition, { presets } from "react-text-transition";
 
 import AuthContext from "../../storage/auth-context";
 
@@ -31,7 +32,13 @@ export default function SelectCompany(){
             
              />
             </SelectContainer>
-            <Title>Empresa selecionada: {selectedCompany.label}</Title>
+            <SelectedCompanyContainer>
+                <Title>Empresa selecionada:  </Title>
+                    <SelectedTitle><TextTransition
+                    text={selectedCompany.label  }
+                    springConfig={ presets.wobbly }/></SelectedTitle>
+               
+            </SelectedCompanyContainer>
         </BgContainer>
     )
 }

@@ -19,21 +19,21 @@ export const BgContainer=styled.div`
 
 export const QuestionContainer=styled.div`
     display: flex;
-    width: 70%;
+    width: 80%;
     align-items: center;
-    //align-content: center;
+    margin-bottom: 50px;
     justify-content:space-between;
-    
+
 `
 
 export const GraphContainer=styled.div`
     display:flex;
     align-items:center;
-    
+   
 `
 
 export const PieContainer=styled.div`
-    width:50%;
+    width:40%;
 
     
 `

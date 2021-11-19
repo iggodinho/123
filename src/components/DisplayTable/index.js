@@ -4,12 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { TableContainer } from "./styles";
 
 export default function DisplayTable({header,info}){
-    console.log(info)
 
     const top=header.title.map((item,index)=>{
         const style={
             backgroundColor:header.background[index],
-            textAlign:'center'
+            //textAlign:'center'
         }
         
         return(
