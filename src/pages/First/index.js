@@ -182,13 +182,13 @@ export default function First(){
 
   <QuestionTitle >Você já sofreu algum acidente na plataforma?</QuestionTitle>
   <QuestionContainer>
-    <DisplayTable header={header[0]} info={question.resultados}/>
+    <DisplayTable header={header[0]} info={question.q10}/>
     <PieContainer>
       <VictoryPie
       animate={{
         duration: 1000,
       }}
-      data={pieList(header[0].title,question.resultados)}
+      data={pieList(header[0].title,question.q10)}
       colorScale={header[0].background.slice(1)}
       labelPosition={'centroid'}
       style={{ labels: { fontWeight: "bold"}}}
