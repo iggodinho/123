@@ -40,6 +40,10 @@ export default function First(){
   {title:['Área','Fundamental Incompleto','Fundamental Completo',	'Médio Incompleto',	 
   'Médio Completo','Superior Incompleto','Superior Completo'], background:[,'#B4E4E8','#FFC499','#A6E3B6','#FDE49A','#F6B3AE','#DDADF4']},
   {title:['Área','Total'], background:['#ADE8F4','#ADE8F4']},
+  {title:['Área','Solteiro(a)','Casado(a)','Separado(a)/\nDivorciado(a)','União estável','Viúvo(a)'], background:[,'#B4E4E8','#FFC499','#A6E3B6','#FDE49A','#F6B3AE']},
+  {title:['Empresa','Total'], background:['#ADE8F4','#ADE8F4']},
+  {title:['Área',	'Menos \nde um ano',	'1-5',	'6-10',	'11-15','16-20',	'21+'], background:[,'#B4E4E8','#FFC499','#A6E3B6','#FDE49A','#F6B3AE','#DDADF4']},
+  {title:['Empresa',	'Menos \nde um ano',	'1-5',	'6-10',	'11-15','16-20',	'21+'], background:[,'#B4E4E8','#FFC499','#A6E3B6','#FDE49A','#F6B3AE','#DDADF4']},
 ]
   
   const pieList=(header,question)=>{
@@ -120,6 +124,61 @@ export default function First(){
     />
     </PieContainer>
 </QuestionContainer>
+
+<QuestionTitle >ESTADO CIVIL</QuestionTitle>
+  <QuestionContainer>
+    <DisplayTable header={header[5]} info={question.estadoCivil}/>
+    <PieContainer>
+      <VictoryPie
+      animate={{
+        duration: 1000,
+      }}
+      data={pieList(header[5].title,question.estadoCivil)}
+      colorScale={header[5].background.slice(1)}
+      labelPosition={'centroid'}
+      style={{ labels: { fontWeight: "bold"}}}
+    />
+    </PieContainer>
+  </QuestionContainer>
+
+  <QuestionTitle >EMPRESA</QuestionTitle>
+  <QuestionContainer style={{'justifyContent':'center'}}>
+    <DisplayTable header={header[6]} info={question.company}/>
+  </QuestionContainer>
+
+  <QuestionTitle >Experiência na função atual</QuestionTitle>
+  <QuestionContainer>
+    <DisplayTable header={header[7]} info={question.experiencia}/>
+    <PieContainer>
+      <VictoryPie
+      animate={{
+        duration: 1000,
+      }}
+      data={pieList(header[7].title,question.experiencia)}
+      colorScale={header[7].background.slice(1)}
+      labelPosition={'centroid'}
+      style={{ labels: { fontWeight: "bold"}}}
+    />
+    </PieContainer>
+  </QuestionContainer>
+
+  <QuestionTitle >Tempo (em anos) de trabalho na empresa</QuestionTitle>
+  <QuestionContainer>
+    <DisplayTable header={header[8]} info={question.tempo}/>
+    <PieContainer>
+      <VictoryPie
+      animate={{
+        duration: 1000,
+      }}
+      data={pieList(header[8].title,question.tempo)}
+      colorScale={header[8].background.slice(1)}
+      labelPosition={'centroid'}
+      style={{ labels: { fontWeight: "bold"}}}
+    />
+    </PieContainer>
+  </QuestionContainer>
+
+
 
   <QuestionTitle >Você já sofreu algum acidente na plataforma?</QuestionTitle>
   <QuestionContainer>
