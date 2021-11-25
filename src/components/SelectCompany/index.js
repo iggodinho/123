@@ -32,13 +32,18 @@ export default function SelectCompany(){
             
              />
             </SelectContainer>
-            <SelectedCompanyContainer>
+            
+        </BgContainer>
+    )
+}
+
+/*
+<SelectedCompanyContainer>
                 <Title>Empresa selecionada:  </Title>
                     <SelectedTitle><TextTransition
                     text={selectedCompany.label  }
                     springConfig={ presets.wobbly }/></SelectedTitle>
                
             </SelectedCompanyContainer>
-        </BgContainer>
-    )
-}
+
+*/

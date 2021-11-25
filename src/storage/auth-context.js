@@ -23,6 +23,15 @@ export const AuthContextProvider = (props) => {
         { value: 'empresa 3', label: 'Empresa 3' },
         { value: 'empresa 4', label: 'Empresa 4' }
       ]
+      const sections = [
+        { value: 'B', label: 'Sistema de gestão em segurança' },
+        { value: 'C', label: 'Prioridade em segurança' },
+        { value: 'D', label: 'Exigências de comportamentos de conformidade' },
+        { value: 'E', label: 'Desenvolvimentos de comportamentos de iniciativa' },
+        { value: 'F', label: 'Treinamentos em segurança' },
+        { value: 'G', label: 'Riscos e acidentes' },
+        { value: 'H', label: 'Integridade' }
+      ]  
     const data=[{
         empresa:empresas[0],
         dados:[['Liderança Petrobras',	18],['SMS',12],['Supervisão Contratada/Encarregado',11],
@@ -33,9 +42,9 @@ export const AuthContextProvider = (props) => {
         sexo:[['Liderança Petrobras', 0 ,18], ['SMS', 0 ,12], ['Supervisão contratada/ Encarregado', 0 ,12], 
         ['Operação + Manutenção + Inspeção (BR)', 11 ,51],['Manutenção Contratada', 0 ,53], 
         ['Movimentação de Cargas', 1 ,16], ['Hotelaria', 1 ,29], ['Total', 13 ,189]],
-        q11:[['Liderança Petrobras', 9 ,8,1,0], ['SMS', 9,2,1,0], ['Supervisão contratada/ Encarregado', 6 ,2,1,1], 
-        ['Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0],['Manutenção Contratada', 27 ,11,6,8], 
-        ['Movimentação de Cargas', 8 ,6,2,1], ['Hotelaria', 13 ,7,7,2], ['Total', 105 ,63,20,12]],
+        q11:[['(1) Liderança Petrobras', 9 ,8,1,0,1.9], ['(2) SMS', 9,2,1,0,1.1], ['(3) Supervisão contratada/ Encarregado', 6 ,2,1,1,2.3], 
+        ['(4) Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0,1.7],['(5) Manutenção Contratada', 27 ,11,6,8,3.0], 
+        ['(6) Movimentação de Cargas', 8 ,6,2,1,2.5], ['(7) Hotelaria', 13 ,7,7,2,3.1], ['(8) Total', 105 ,63,20,12,2.3]],
         idade:[['Liderança Petrobras',1	,6,	9	,2,	0], ['SMS', 0	,4,	4	,4,	0], ['Supervisão contratada/ Encarregado', 3,	3	,4,	1,	0], 
         ['Operação + Manutenção + Inspeção (BR)', 4,	28,	20,	9	,1],['Manutenção Contratada', 8	,20,	18,	4	,0], 
         ['Movimentação de Cargas', 0	,3,	9	,4,	0], ['Hotelaria', 11,	12,	5,	2	,0], ['Total', 27	,76,	69,	26,	1]],
@@ -53,9 +62,9 @@ export const AuthContextProvider = (props) => {
         tempo:[['Petrobras'	,0,	6,	18,	53	,	7,	6],['Gran IHC'	,16	,31,	1	,1,		0,	0],['LC Refeições',	5	,20	,5,	0,		0,	0],
         ['Engeman'	,0,	13,	2,	0	,	1	,0],['Macseal',	2,	4,	2,	0,		0,	0],['Kempetro' ,	3	,0,	0,	0	,	0,	0],['CETCO',	0	,0,	1	,0,		0,	0],
         ['L A Falcão Bauer'	,0,	1,	0	,0,		0	,0],['MARENOSTRUM',	0,	1	,0,	0	,	0	,0],['Núcleo Engenharia',	0	,0,	1	,0,		0,	0], ['UNIVERSAL',	1,	0	,0,	0	,	0,	0],['TOTAL'	,27	,76,	30,	54	,	8	,6]],
-        q12:[['Liderança Petrobras', 5,	7	,6,	0], ['SMS', 5,	4,	3,	0], ['Supervisão contratada/ Encarregado',2,	0,	3,	6], 
-        ['Operação + Manutenção + Inspeção (BR)', 6	,10,	32,	14],['Manutenção Contratada',8,	7,	7,	30], 
-        ['Movimentação de Cargas',3,	3,	3,	7], ['Hotelaria', 4,	8	,9,	8], ['Total', 33 ,39,63,65]],
+        q12:[['(1) Liderança Petrobras', 5,	7	,6,	0], ['(2) SMS', 5,	4,	3,	0], ['(3) Supervisão contratada/ Encarregado',2,	0,	3,	6], 
+        ['(4) Operação + Manutenção + Inspeção (BR)', 6	,10,	32,	14],['(5) Manutenção Contratada',8,	7,	7,	30], 
+        ['(6) Movimentação de Cargas',3,	3,	3,	7], ['(7) Hotelaria', 4,	8	,9,	8], ['(8) Total', 33 ,39,63,65]],
       },
       {
         empresa:empresas[1],
@@ -67,9 +76,9 @@ export const AuthContextProvider = (props) => {
         sexo:[['Liderança Petrobras', 0 ,18], ['SMS', 0 ,12], ['Supervisão contratada/ Encarregado', 0 ,12], 
         ['Operação + Manutenção + Inspeção (BR)', 11 ,51],['Manutenção Contratada', 0 ,53], 
         ['Movimentação de Cargas', 1 ,16], ['Hotelaria', 1 ,29], ['Total', 13 ,189]],
-        q11:[['Liderança Petrobras', 9 ,8,1,0], ['SMS', 9,2,1,0], ['Supervisão contratada/ Encarregado', 6 ,4,3,1], 
-        ['Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0],['Manutenção Contratada', 27 ,11,7,8], 
-        ['Movimentação de Cargas', 8 ,6,22,1], ['Hotelaria', 0 ,7,7,15], ['Total', 13 ,189,222,25]],
+        q11:[['(1) Liderança Petrobras', 9 ,8,1,0], ['(2) SMS', 9,2,1,0], ['(3) Supervisão contratada/ Encarregado', 6 ,4,3,1], 
+        ['(4) Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0],['(5) Manutenção Contratada', 27 ,11,7,8], 
+        ['(6) Movimentação de Cargas', 8 ,6,22,1], ['(7) Hotelaria', 0 ,7,7,15], ['(8) Total', 13 ,189,222,25]],
         idade:[['Liderança Petrobras', 9 ,8,1,0,1], ['SMS', 9,2,1,0,1], ['Supervisão contratada/ Encarregado', 6 ,4,3,1,1], 
         ['Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0,1],['Manutenção Contratada', 27 ,11,7,8,1], 
         ['Movimentação de Cargas', 8 ,6,22,1,1], ['Hotelaria', 0 ,7,7,15,1], ['Total', 13 ,189,222,25,7]],
@@ -87,9 +96,9 @@ export const AuthContextProvider = (props) => {
         tempo:[['Petrobras'	,0,	6,	18,	53	,	7,	6],['Gran IHC'	,16	,31,	1	,1,		0,	0],['LC Refeições',	5	,20	,5,	0,		0,	0],
         ['Engeman'	,0,	13,	2,	0	,	1	,0],['Macseal',	2,	4,	2,	0,		0,	0],['Kempetro' ,	3	,0,	0,	0	,	0,	0],['CETCO',	0	,0,	1	,0,		0,	0],
         ['L A Falcão Bauer'	,0,	1,	0	,0,		0	,0],['MARENOSTRUM',	0,	1	,0,	0	,	0	,0],['Núcleo Engenharia',	0	,0,	1	,0,		0,	0], ['UNIVERSAL',	1,	0	,0,	0	,	0,	0],['TOTAL'	,27	,76,	30,	54	,	8	,6]],
-        q12:[['Liderança Petrobras', 7,	5	,6,	0], ['SMS', 5,	4,	0,	3], ['Supervisão contratada/ Encarregado',2,	0,	3,	6], 
-        ['Operação + Manutenção + Inspeção (BR)', 6	,10,	32,	14],['Manutenção Contratada',8,	7,	7,	30], 
-        ['Movimentação de Cargas',3,	3,	3,	7], ['Hotelaria', 4,	8	,9,	8], ['Total', 35 ,37,60,68]],
+        q12:[['(1) Liderança Petrobras', 7,	5	,6,	0], ['(2) SMS', 5,	4,	0,	3], ['(3) Supervisão contratada/ Encarregado',2,	0,	3,	6], 
+        ['(4) Operação + Manutenção + Inspeção (BR)', 6	,10,	32,	14],['(5) Manutenção Contratada',8,	7,	7,	30], 
+        ['(6) Movimentação de Cargas',3,	3,	3,	7], ['(7) Hotelaria', 4,	8	,9,	8], ['(8) Total', 35 ,37,60,68]],
         
         
       },
@@ -103,9 +112,9 @@ export const AuthContextProvider = (props) => {
         sexo:[['Liderança Petrobras', 0 ,18], ['SMS', 0 ,12], ['Supervisão contratada/ Encarregado', 0 ,12], 
         ['Operação + Manutenção + Inspeção (BR)', 11 ,51],['Manutenção Contratada', 0 ,53], 
         ['Movimentação de Cargas', 1 ,16], ['Hotelaria', 1 ,29], ['Total', 13 ,189]],
-        q11:[['Liderança Petrobras', 9 ,8,1,0], ['SMS', 9,2,1,0], ['Supervisão contratada/ Encarregado', 6 ,2,1,1], 
-        ['Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0],['Manutenção Contratada', 27 ,11,6,8], 
-        ['Movimentação de Cargas', 8 ,6,2,1], ['Hotelaria', 13 ,7,7,2], ['Total', 13 ,189,222,25]],
+        q11:[['(1) Liderança Petrobras', 9 ,8,1,0], ['(2) SMS', 9,2,1,0], ['(3) Supervisão contratada/ Encarregado', 6 ,2,1,1], 
+        ['(4) Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0],['(5) Manutenção Contratada', 27 ,11,6,8], 
+        ['(6) Movimentação de Cargas', 8 ,6,2,1], ['(7) Hotelaria', 13 ,7,7,2], ['(8) Total', 13 ,189,222,25]],
         idade:[['Liderança Petrobras', 9 ,8,1,0,1], ['SMS', 9,2,1,0,1], ['Supervisão contratada/ Encarregado', 6 ,4,3,1,1], 
         ['Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0,1],['Manutenção Contratada', 27 ,11,7,8,1], 
         ['Movimentação de Cargas', 8 ,6,22,1,1], ['Hotelaria', 0 ,7,7,15,1], ['Total', 13 ,189,222,25,7]],
@@ -123,9 +132,9 @@ export const AuthContextProvider = (props) => {
         tempo:[['Petrobras'	,0,	6,	18,	53	,	7,	6],['Gran IHC'	,16	,31,	1	,1,		0,	0],['LC Refeições',	5	,20	,5,	0,		0,	0],
         ['Engeman'	,0,	13,	2,	0	,	1	,0],['Macseal',	2,	4,	2,	0,		0,	0],['Kempetro' ,	3	,0,	0,	0	,	0,	0],['CETCO',	0	,0,	1	,0,		0,	0],
         ['L A Falcão Bauer'	,0,	1,	0	,0,		0	,0],['MARENOSTRUM',	0,	1	,0,	0	,	0	,0],['Núcleo Engenharia',	0	,0,	1	,0,		0,	0], ['UNIVERSAL',	1,	0	,0,	0	,	0,	0],['TOTAL'	,27	,76,	30,	54	,	8	,6]],
-        q12:[['Liderança Petrobras', 5,	7	,6,	0], ['SMS', 5,	4,	3,	0], ['Supervisão contratada/ Encarregado',2,	0,	3,	6], 
-        ['Operação + Manutenção + Inspeção (BR)', 6	,10,	32,	14],['Manutenção Contratada',8,	7,	7,	30], 
-        ['Movimentação de Cargas',3,	3,	3,	7], ['Hotelaria', 0,	10	,9,	10], ['Total', 29 ,41,63,67]],
+        q12:[['(1) Liderança Petrobras', 5,	7	,6,	0], ['(2) SMS', 5,	4,	3,	0], ['(3) Supervisão contratada/ Encarregado',2,	0,	3,	6], 
+        ['(4) Operação + Manutenção + Inspeção (BR)', 6	,10,	32,	14],['(5) Manutenção Contratada',8,	7,	7,	30], 
+        ['(6) Movimentação de Cargas',3,	3,	3,	7], ['(7) Hotelaria', 0,	10	,9,	10], ['(8) Total', 29 ,41,63,67]],
       },
       {
         empresa:empresas[3],
@@ -137,9 +146,9 @@ export const AuthContextProvider = (props) => {
         sexo:[['Liderança Petrobras', 0 ,18], ['SMS', 0 ,12], ['Supervisão contratada/ Encarregado', 0 ,12], 
         ['Operação + Manutenção + Inspeção (BR)', 11 ,51],['Manutenção Contratada', 0 ,53], 
         ['Movimentação de Cargas', 1 ,16], ['Hotelaria', 1 ,29], ['Total', 13 ,189]],
-        q11:[['Liderança Petrobras', 9 ,4,1,4], ['SMS', 9,2,1,17], ['Supervisão contratada/ Encarregado', 6 ,2,4,25], 
-        ['Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0],['Manutenção Contratada', 27 ,11,6,8], 
-        ['Movimentação de Cargas', 8 ,6,5,1], ['Restauração', 13 ,7,7,2], ['Total', 13 ,189,222,25]],
+        q11:[['(1) Liderança Petrobras', 9 ,4,1,4], ['(2) SMS', 9,2,1,17], ['(3) Supervisão contratada/ Encarregado', 6 ,2,4,25], 
+        ['(4) Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0],['(5) Manutenção Contratada', 27 ,11,6,8], 
+        ['(6) Movimentação de Cargas', 8 ,6,5,1], ['(7) Restauração', 13 ,7,7,2], ['Total(8) ', 13 ,189,222,25]],
         idade:[['Liderança Petrobras', 9 ,8,1,0,1], ['SMS', 9,2,1,0,1], ['Supervisão contratada/ Encarregado', 6 ,4,3,1,1], 
         ['Operação + Manutenção + Inspeção (BR)', 33 ,27,2,0,1],['Manutenção Contratada', 27 ,11,7,8,1], 
         ['Movimentação de Cargas', 8 ,6,22,1,1], ['Hotelaria', 0 ,7,7,15,1], ['Total', 13 ,189,222,25,7]],
@@ -158,12 +167,13 @@ export const AuthContextProvider = (props) => {
         ['Engeman'	,0,	13,	2,	0	,	1	,0],['Macseal',	2,	4,	2,	0,		0,	0],['Kempetro' ,	3	,0,	0,	0	,	0,	0],['CETCO',	0	,0,	1	,0,		0,	0],
         ['L A Falcão Bauer'	,0,	1,	0	,0,		0	,0],['MARENOSTRUM',	0,	1	,0,	0	,	0	,0],['Núcleo Engenharia',	0	,0,	1	,0,		0,	0], 
         ['UNIVERSAL',	1,	0	,0,	0	,	0,	0],['TOTAL'	,27	,76,	30,	54	,	8	,6]],
-        q12:[['Liderança Petrobras', 5,	7	,6,	0], ['SMS', 5,	4,	3,	0], ['Supervisão contratada/ Encarregado',2,	0,	3,	6], 
-        ['Operação + Manutenção + Inspeção (BR)', 10	,6,	32,	14],['Manutenção Contratada',8,	7,	17,	20], 
-        ['Movimentação de Cargas',3,	3,	3,	7], ['Hotelaria', 4,	8	,9,	8], ['Total', 37 ,35,73,55]],
+        q12:[['(1) Liderança Petrobras', 5,	7	,6,	0], ['(2) SMS', 5,	4,	3,	0], ['(3) Supervisão contratada/ Encarregado',2,	0,	3,	6], 
+        ['(4) Operação + Manutenção + Inspeção (BR)', 10	,6,	32,	14],['(5) Manutenção Contratada',8,	7,	17,	20], 
+        ['(6) Movimentação de Cargas',3,	3,	3,	7], ['(7) Total', 33 ,27,64,47]],
       },
       ]
   const [selectedCompany,setSelectedCompany]=useState(empresas[0])
+  const [selectedSection,setSelectedSection]=useState(sections[0])
   const [question,setQuestion]=useState(getInfo(data,selectedCompany.label))
   useEffect(()=>{
     let timer = setTimeout(() => {
@@ -179,7 +189,10 @@ export const AuthContextProvider = (props) => {
       empresas:empresas,
       data:data,
       question:question,
-      setQuestion:setQuestion
+      setQuestion:setQuestion,
+      sections:sections,
+      selectedSection:selectedSection,
+      setSelectedSection:setSelectedSection,
     }}
   >{props.children}</AuthContext.Provider>
 };

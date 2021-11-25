@@ -13,7 +13,7 @@ export const HeaderContainer=styled.div`
   
   flex-direction: column;
   background-color: #CAF0F8;
-  margin-bottom: 20px;
+  
 `
 export const StyledLink=styled(Link)`
  text-decoration:none;

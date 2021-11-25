@@ -9,13 +9,9 @@ import SelectCompany from "../../components/SelectCompany";
 
 import AuthContext from "../../storage/auth-context";
 import DisplayTable from "../../components/DisplayTable";
+import { MenuContainer, MenuList, MenuOption } from "./styles";
+import SelectSection from "../../components/SelectSection";
 
-
-function toPercentageTotal(num,total){
-      const calc=(num/total*100)
-      const percent=Math.round(calc)
-      return `${percent}%`
-    }
 
 
 const transformData=(dataset) =>{
@@ -33,105 +29,65 @@ const transformData=(dataset) =>{
 
 
 const getDataset=(question)=>{
-  const dataset=[
-    [
-        { x: "a", y: question[7][1] },
-        { x: "b", y: question[6][1] },
-        { x: "c", y: question[5][1] },
-        { x: "d", y: question[4][1] },
-        { x: "e", y: question[3][1] },
-        { x: "f", y: question[2][1] },
-        { x: "g", y: question[1][1] },
-        { x: "h", y: question[0][1] },
-    ],
-    [
-      { x: "a", y: question[7][2] },
-      { x: "b", y: question[6][2] },
-      { x: "c", y: question[5][2] },
-      { x: "d", y: question[4][2] },
-      { x: "e", y: question[3][2] },
-      { x: "f", y: question[2][2] },
-      { x: "g", y: question[1][2] },
-      { x: "h", y: question[0][2] },
-    ],
-    [
-      { x: "a", y: question[7][3] },
-      { x: "b", y: question[6][3] },
-      { x: "c", y: question[5][3] },
-      { x: "d", y: question[4][3] },
-      { x: "e", y: question[3][3] },
-      { x: "f", y: question[2][3] },
-      { x: "g", y: question[1][3] },
-      { x: "h", y: question[0][3] },
-
-    ],
-    [
-      { x: "a", y: question[7][4] },
-      { x: "b", y: question[6][4] },
-      { x: "c", y: question[5][4] },
-      { x: "d", y: question[4][4] },
-      { x: "e", y: question[3][4] },
-      { x: "f", y: question[2][4] },
-      { x: "g", y: question[1][4] },
-      { x: "h", y: question[0][4] },
-
-  ],
+  const size=question.length
   
+  const first=()=>{
+    const list=[]
+    for(let i=0;i<size;i++){
+      list.push({x: (i+1).toString(), y: question[i][1]})
+    }
+    return list.reverse()
+  }
+  const second=()=>{
+    const list=[]
+    for(let i=0;i<size;i++){
+      list.push({x: (i+1).toString(), y: question[i][2]})
+    }
+    return list.reverse()
+  }
+  const third=()=>{
+    const list=[]
+    for(let i=0;i<size;i++){
+      list.push({x: (i+1).toString(), y: question[i][3]})
+    }
+    return list.reverse()
+  }
+  const fourth=()=>{
+    const list=[]
+    for(let i=0;i<size;i++){
+      list.push({x: (i+1).toString(), y: question[i][4]})
+    }
+    return list.reverse()
+  }
+  
+  const dataset=[
+    first(),
+    second(),
+    third(),
+    fourth()
   ];
   return transformData(dataset)
 }
 
+const getLabels=(question)=>{
+  const size=question.length
+  const list=[]
+  for(let i=0;i<size;i++){
+    list.push((i+1).toString())
+  }
+}
+
+
 
 export default function Questions(){
-  const {question}=useContext(AuthContext)
+  const {question,selectedSection}=useContext(AuthContext)
   
   const header=[
-  {title:['Área','Discordo fortemente','Discordo mais \nque concordo','Concordo mais \nque discordo','Concordo fortemente'],
-background:[,"#FF5050", "#FFC000", "#92D050",'#00B050']},{}]
+  {title:['Área','Discordo fortemente','Discordo mais \nque concordo','Concordo mais \nque discordo','Concordo fortemente','NOTA'],
+background:[,"#FF5050", "#FFC000", "#92D050",'#00B050','#B3CEFA']},{}]
   
   
-  const myDataset = [
-    [
-        { x: "a", y: question.q11[6][1] },
-        { x: "b", y: question.q11[5][1] },
-        { x: "c", y: question.q11[4][1] },
-        { x: "d", y: question.q11[3][1] },
-        { x: "e", y: question.q11[2][1] },
-        { x: "f", y: question.q11[1][1] },
-        { x: "g", y: question.q11[0][1] },
-        
-    ],
-    [
-      { x: "a", y: question.q11[6][2] },
-      { x: "b", y: question.q11[5][2] },
-      { x: "c", y: question.q11[4][2] },
-      { x: "d", y: question.q11[3][2] },
-      { x: "e", y: question.q11[2][2] },
-      { x: "f", y: question.q11[1][2] },
-      { x: "g", y: question.q11[0][2] },
-    ],
-    [
-      { x: "a", y: question.q11[6][3] },
-      { x: "b", y: question.q11[5][3] },
-      { x: "c", y: question.q11[4][3] },
-      { x: "d", y: question.q11[3][3] },
-      { x: "e", y: question.q11[2][3] },
-      { x: "f", y: question.q11[1][3] },
-      { x: "g", y: question.q11[0][3] },
-    ],
-    [
-      { x: "a", y: question.q11[6][4] },
-      { x: "b", y: question.q11[5][4] },
-      { x: "c", y: question.q11[4][4] },
-      { x: "d", y: question.q11[3][4] },
-      { x: "e", y: question.q11[2][4] },
-      { x: "f", y: question.q11[1][4] },
-      { x: "g", y: question.q11[0][4] },
-  ],
-  
-  ];
-
-
+getLabels(question.q12)
 const barLabelStyles = {
   fontSize: 14,
   fill: "black",
@@ -145,18 +101,12 @@ const CenteredLabel = (props) => {
     <VictoryLabel {...props} style={[barLabelStyles]} x={centerPos} dx={0} />
   );
 };
-const dataset = transformData(myDataset);
 
+
+  const Section1=()=>{
     return(
-        <>
-        
-
-<Header location='/questoes'/>
-<SelectCompany/>
-
-<BgContainer>
-  
-  <QuestionTitle>A principal causa dos acidentes de trabalho é o azar ou a fatalidade.</QuestionTitle>
+    <>
+    <QuestionTitle>11. A principal causa dos acidentes de trabalho é o azar ou a fatalidade.</QuestionTitle>
   <QuestionContainer>
     <DisplayTable header={header[0]} info={question.q11}/>
     <GraphContainer > 
@@ -183,8 +133,8 @@ const dataset = transformData(myDataset);
                   labels={({ datum }) => percentage(datum.y)}
                   style={{ labels: { fill: "black",fontSize:'14px',textAnchor:'middle'}}}
                   animate={{
-                    duration: 2000,
-                    onLoad: { duration: 1000 }
+                    //duration: 500,
+                    
                   }}
                   data={data} key={i}/>;
                 })}
@@ -194,7 +144,7 @@ const dataset = transformData(myDataset);
                 style={{ tickLabels: { fontSize: 16 } }}               
               />
               <VictoryAxis
-                tickFormat={["", "", "", "", "",'','']}
+                tickFormat={getLabels(question.q12)}
                 height={200}
             />
           </VictoryChart>
@@ -203,7 +153,7 @@ const dataset = transformData(myDataset);
         
 
 
-<QuestionTitle>Em caso de acidente, sempre se procura um culpado por ele.</QuestionTitle>
+<QuestionTitle>12. Em caso de acidente, sempre se procura um culpado por ele.</QuestionTitle>
   <QuestionContainer>
     <DisplayTable header={header[0]} info={question.q12}/>
     <GraphContainer > 
@@ -230,8 +180,8 @@ const dataset = transformData(myDataset);
                   labels={({ datum }) => percentage(datum.y)}
                   style={{ labels: { fill: "black",fontSize:'14px',textAnchor:'middle'}}}
                   animate={{
-                    duration: 2000,
-                    onLoad: { duration: 1000 }
+                    //duration: 500,
+                   
                   }}
                   data={data} key={i}/>;
                 })}
@@ -241,18 +191,138 @@ const dataset = transformData(myDataset);
                 style={{ tickLabels: { fontSize: 16 } }}               
               />
               <VictoryAxis
-                tickFormat={["", "", "", "", "",'','']}
+                tickFormat={getLabels(question.q12)}
                 height={200}
             />
           </VictoryChart>
     </GraphContainer>
   </QuestionContainer>
+    </>
+    )
+  }
+
+  const Section2=()=>{
+    return(
+      <>
+      <QuestionTitle>11. A principal causa dos acidentes de trabalho é o azar ou a fatalidade.</QuestionTitle>
+    <QuestionContainer>
+      <DisplayTable header={header[0]} info={question.q11}/>
+      <GraphContainer > 
+          <VictoryChart height={400} 
+              width={600}
+              domainPadding={{ x: 20, y: 0 }}
+              horizontal
+            >
+                <VictoryStack
+                  colorScale={["#FF5050", "#FFC000", "#92D050",'#00B050']}
+                >
+                  {getDataset(question.q11).map((data, i) => {
+                    const percentage=(x)=>{
+                        if(Math.round(x)!=0){
+                          return Math.round(x)+"%"
+                        }
+                        else{
+                          return null
+                        }
+                    }
+                    return <VictoryBar 
+                    labelComponent={<CenteredLabel />}
+                    barWidth={20}
+                    labels={({ datum }) => percentage(datum.y)}
+                    style={{ labels: { fill: "black",fontSize:'14px',textAnchor:'middle'}}}
+                    animate={{
+                      //duration: 500,
+                      
+                    }}
+                    data={data} key={i}/>;
+                  })}
+                </VictoryStack>
+                <VictoryAxis dependentAxis
+                  tickFormat={(tick) => `${tick}%`}
+                  style={{ tickLabels: { fontSize: 16 } }}               
+                />
+                <VictoryAxis
+                  tickFormat={getLabels(question.q12)}
+                  height={200}
+              />
+            </VictoryChart>
+      </GraphContainer>
+    </QuestionContainer>
+          
+  
+  
+  <QuestionTitle>12. Em caso de acidente, sempre se procura um culpado por ele.</QuestionTitle>
+    <QuestionContainer>
+      <DisplayTable header={header[0]} info={question.q12}/>
+      <GraphContainer > 
+          <VictoryChart height={400} 
+              width={600}
+              domainPadding={{ x: 20, y: 0 }}
+              horizontal
+            >
+                <VictoryStack
+                  colorScale={["#FF5050", "#FFC000", "#92D050",'#00B050']}
+                >
+                  {getDataset(question.q12).map((data, i) => {
+                    const percentage=(x)=>{
+                        if(Math.round(x)!=0){
+                          return Math.round(x)+"%"
+                        }
+                        else{
+                          return null
+                        }
+                    }
+                    return <VictoryBar 
+                    labelComponent={<CenteredLabel />}
+                    barWidth={20}
+                    labels={({ datum }) => percentage(datum.y)}
+                    style={{ labels: { fill: "black",fontSize:'14px',textAnchor:'middle'}}}
+                    animate={{
+                      //duration: 500,
+                     
+                    }}
+                    data={data} key={i}/>;
+                  })}
+                </VictoryStack>
+                <VictoryAxis dependentAxis
+                  tickFormat={(tick) => `${tick}%`}
+                  style={{ tickLabels: { fontSize: 16 } }}               
+                />
+                <VictoryAxis
+                  tickFormat={getLabels(question.q12)}
+                  height={200}
+              />
+            </VictoryChart>
+      </GraphContainer>
+    </QuestionContainer>
+      </>
+    )
+  }
 
 
+  const DisplaySelectedSection=()=>{
+    if(selectedSection.value==='B'){
+      return <Section1/>
+    }
+    else if(selectedSection.value==='C'){
+      return <Section2/>
+    }
+    else{
+      return <Section1/>
+    }
+  }
 
 
+    return(
+        <>
+        
 
-
+<Header location='/questoes'/>
+<SelectCompany/>
+<SelectSection/>
+<BgContainer>
+  <DisplaySelectedSection/>
+  
 </BgContainer>
   </>  
     )
