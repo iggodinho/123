@@ -182,6 +182,29 @@ export const AuthContextProvider = (props) => {
       return () => clearTimeout(timer)
       }, [selectedCompany]);
 
+      const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
+      useEffect(() => {
+        const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
+        if (storedUserLoggedInInformation) {
+          setIsLoggedIn(true);
+        }
+        
+      }, []);
+
+      const logoutHandler = () => {
+          localStorage.removeItem('isLoggedIn');
+          setIsLoggedIn(false);
+          };
+        
+      const loginHandler = (email, password) => {
+          localStorage.setItem('isLoggedIn', true);
+          setIsLoggedIn(true);
+          window.location.reload()
+          };
+
+
   return <AuthContext.Provider
     value={{
       selectedCompany:selectedCompany,
@@ -193,6 +216,8 @@ export const AuthContextProvider = (props) => {
       sections:sections,
       selectedSection:selectedSection,
       setSelectedSection:setSelectedSection,
+      onLogin:loginHandler,
+      onLogout:logoutHandler,
     }}
   >{props.children}</AuthContext.Provider>
 };

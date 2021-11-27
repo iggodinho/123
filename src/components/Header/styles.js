@@ -2,7 +2,7 @@
 import {DiGoogleAnalytics} from 'react-icons/di';
 import styled from 'styled-components';
 import {GoGraph} from 'react-icons/go';
-import {AiOutlinePieChart} from 'react-icons/ai';   
+import {AiOutlinePieChart,AiOutlineLogout} from 'react-icons/ai';   
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer=styled.div`
@@ -25,7 +25,7 @@ export const NavList = styled.ul`
     
     justify-content: space-between;
     width:50%;
-    margin-right: 30px;
+    
 `
 
 export const NavOption =styled.li`
@@ -37,6 +37,7 @@ export const NavOption =styled.li`
     font-size: 24px;
     font-weight: bold;
     padding: 10px 20px;
+    width: 50px;
     opacity:${props=>
     {return props.active===true?'100%':'50%'}};
     cursor:pointer;
@@ -59,6 +60,11 @@ export const AnalyticsIcon = styled(DiGoogleAnalytics)`
 `
 
 export const GraphIcon = styled(GoGraph)`
+    width: 50px;
+    height: 50px;
+`
+
+export const LogoutIcon = styled(AiOutlineLogout)`
     width: 50px;
     height: 50px;
 `
