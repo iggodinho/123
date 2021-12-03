@@ -6,6 +6,7 @@ import QuestionTitle from "../../components/QuestionTitle";
 import SelectCompany from "../../components/SelectCompany";
 import AuthContext from "../../storage/auth-context";
 import DisplayTable from "../../components/DisplayTable";
+import Description from "../../components/Description";
 
 
 function toPercentageTotal(num,total){
@@ -71,6 +72,11 @@ export default function First(){
 <Header location='/'/>
 <SelectCompany/>
 <BgContainer>
+    <QuestionTitle>DESCRIÇÃO</QuestionTitle>
+    <Description>
+    {question.description}
+    </Description>
+
     <QuestionTitle>DADOS</QuestionTitle>
     <QuestionContainer style={{'justifyContent':'center'}}>
       <DisplayTable header={header[4]} info={question.dados}/>
