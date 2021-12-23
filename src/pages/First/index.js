@@ -7,7 +7,7 @@ import SelectCompany from "../../components/SelectCompany";
 import AuthContext from "../../storage/auth-context";
 import DisplayTable from "../../components/DisplayTable";
 import Description from "../../components/Description";
-
+import TextTransition, { presets } from "react-text-transition";
 
 function toPercentageTotal(num,total){
       const calc=(num/total*100)
@@ -74,8 +74,10 @@ export default function First(){
 <BgContainer>
     <QuestionTitle>DESCRIÇÃO</QuestionTitle>
     <Description>
-    {question.description}
-    </Description>
+      <TextTransition
+          text={question.description }
+          springConfig={ presets.wobbly }/>
+      </Description>
 
     <QuestionTitle>DADOS</QuestionTitle>
     <QuestionContainer style={{'justifyContent':'center'}}>
